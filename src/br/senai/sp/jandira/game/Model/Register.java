@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class Register {
 
+    int validaPrint = 0;
+
     /**
      * Instancia Scanner
      */
@@ -20,11 +22,17 @@ public class Register {
      */
     Enemy enemy = new Enemy();
 
-    public void BothRegister() {
+    /**
+     *  Instancia Output
+     */
+    Output output = new Output();
 
+    public void BothRegister() {
+        validaPrint = 1;
         PlayerRegister();
         EnemyRegister();
-
+        output.PrintPlayer(player);
+        output.PrintEnemy(enemy);
 
     }
 
@@ -33,10 +41,15 @@ public class Register {
         /** Coleta dados do Player-1 */
         System.out.println("---------------- Cadastro Player ----------------");
         System.out.print("Qual é o seu nome: ");
-        player.nome = teclado.nextLine();
+        player.nome = teclado.next();
         System.out.println("Escolha sua skin (red - blue - purple) : ");
-        player.skin = teclado.nextLine();
+        player.skin = teclado.next();
         System.out.println("--------- Player Cadastrado com Sucesso ---------");
+
+        if(validaPrint != 1) {
+            /** Printa as Informações Cadastradas */
+            output.PrintPlayer(player);
+        }
 
     }
 
@@ -45,10 +58,14 @@ public class Register {
         /** Coleta dados do Enemy-1 */
         System.out.println("---------------- Cadastro Enemy ----------------");
         System.out.print("Qual é o seu nome: ");
-        enemy.nome = teclado.nextLine();
+        enemy.nome = teclado.next();
         System.out.println("Escolha sua skin (red - blue - purple) : ");
-        enemy.skin = teclado.nextLine();
+        enemy.skin = teclado.next();
         System.out.println("--------- Enemy Cadastrado com Sucesso ---------");
+
+        if (validaPrint != 1) {
+            output.PrintEnemy(enemy);
+        }
 
     }
 
@@ -57,28 +74,29 @@ public class Register {
         String decision;
 
         System.out.println("Seja Bem Vindo !!!");
-        System.out.println("Deseja Cadastrar [ Player - Enemy - Ambos: ");
-        decision = teclado.nextLine();
+        System.out.println("Deseja Cadastrar [Player - Enemy - Ambos]: ");
+        decision = teclado.next();
 
-        switch (decision) {
+        switch (decision.toLowerCase()) {
 
-            case "Player":
+            case "player":
                 PlayerRegister();
                 break;
 
-            case "Enemy":
+            case "enemy":
                 EnemyRegister();
                 break;
 
-            case "Ambos":
+            case "ambos":
                 BothRegister();
-
-            default:
-
-                System.out.println("Digite uma Opção Valida !");
-
         }
 
+        System.out.println("Deseja Retornar ao Cadastro [1- Sim  2- Não]: ");
+        int continuar = teclado.nextInt();
+
+        if(continuar==1){
+            Decision();
+        }
 
     }
 
