@@ -39,12 +39,12 @@ public class Register {
     public Player PlayerRegister() {
 
         /** Coleta dados do Player-1 */
-        System.out.println("---------------- Cadastro Player ----------------");
-        System.out.print("Qual é o seu nome: ");
+        System.out.println("---------------- CADASTRO PLAYER ----------------");
+        System.out.print("Seu nome: ");
         player.nome = teclado.next();
-        System.out.println("Escolha sua skin (red - blue - purple) : ");
+        System.out.println("Escolha seu skin (red - blue - pink) : ");
         player.skin = teclado.next();
-        System.out.println("--------- Player Cadastrado com Sucesso ---------");
+        System.out.println("--------- PLAYER CADASTRADO COM SUCESSO ---------");
 
         if(validaPrint != 1) {
             /** Printa as Informações Cadastradas */
@@ -58,12 +58,12 @@ public class Register {
     public Enemy EnemyRegister() {
 
         /** Coleta dados do Enemy-1 */
-        System.out.println("---------------- Cadastro Enemy ----------------");
-        System.out.print("Qual é o seu nome: ");
+        System.out.println("---------------- CADASTRO ENEMY ----------------");
+        System.out.print("Seu nome: ");
         enemy.nome = teclado.next();
-        System.out.println("Escolha sua skin (red - blue - purple) : ");
+        System.out.println("Escolha sua skin (red - blue - pink) : ");
         enemy.skin = teclado.next();
-        System.out.println("--------- Enemy Cadastrado com Sucesso ---------");
+        System.out.println("--------- ENEMY CADASTRADO COM SUCESSO ---------");
 
         if (validaPrint != 1) {
             output.PrintEnemy(enemy);
@@ -76,8 +76,8 @@ public class Register {
 
         String decision;
 
-        System.out.println("Seja Bem Vindo !!!");
-        System.out.println("Deseja Cadastrar [Player - Enemy - Ambos]: ");
+        System.out.println("SEJA BEM VINDO !!!");
+        System.out.println("Deseja Cadastrar [PLAYER - ENEMY - AMBOS]: ");
         decision = teclado.next();
 
         switch (decision.toLowerCase()) {
@@ -94,7 +94,7 @@ public class Register {
                 BothRegister();
         }
 
-        System.out.println("Deseja Retornar ao Cadastro [1- Sim  2- Não]: ");
+        System.out.println("Deseja Retornar ao Cadastro [1- SIM  2- NÃO]: ");
         int continuar = teclado.nextInt();
 
         if(continuar==1){
