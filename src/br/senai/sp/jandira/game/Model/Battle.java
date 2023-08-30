@@ -41,71 +41,60 @@ public class Battle {
             System.out.println("--------------------------");
             System.out.println("-     PLAYER ATACOU      -");
             System.out.println("--------------------------");
-            System.out.println("Enemy defende [ D ]");
 
-            String defesa = teclado.next();
+            int danoPlayer = (int) (Math.random() * 20) + 1;
+            int defesaEnemy = (int) (Math.random() * 20) + 1;
 
-            if (defesa.equalsIgnoreCase("D")) {
-                int danoPlayer = ((int) (Math.random() * 20) + 1) - ((int) (Math.random() * 20) + 1);
+            int danoReal = danoPlayer - defesaEnemy;
 
-                if (danoPlayer < 0) {
-                    danoPlayer = 0;
-                }
-                System.out.println("--------------------------");
-                System.out.println("O ataque foi de: " + danoPlayer);
-                enemy.subTrairVida(danoPlayer);
-            } else {
-
-                int danoPlayer = (int) (Math.random() * 20) + 1;
-
-                System.out.println("----------------------------------------------");
-                System.out.println(" O ataque foi de: " + danoPlayer);
-
-                enemy.subTrairVida(danoPlayer);
-
+            if (danoReal < 0){
+                danoReal = 0;
             }
+
+            enemy.subTrairVida(danoPlayer);
+
+            System.out.println("---------------------------------");
+            System.out.println(" O Ataque foi de: " + danoPlayer);
+            System.out.println("---------------------------------");
+            System.out.println(" A Defesa foi de: " + defesaEnemy);
+
+
 
         } else if (attack.equalsIgnoreCase("X")) {
 
-            System.out.println("--------------------------");
-            System.out.println("-      ENEMY ATACOU      -");
-            System.out.println("--------------------------");
-            System.out.println("Player defende [ D ]");
+            System.out.println("-------------------------------");
+            System.out.println("-          ENEMY ATACOU       -");
+            System.out.println("-------------------------------");
 
-            String defesa = teclado.next();
+            int danoEnemy = (int) (Math.random() * 20) + 1;
+            int defesaEnemy = (int) (Math.random() * 20) + 1;
 
-            if (defesa.equalsIgnoreCase("d")) {
-                int danoEnemy = ((int) (Math.random() * 20) + 1) - ((int) (Math.random() * 20) + 1);
+            int danoReal = danoEnemy - defesaEnemy;
 
-                if (danoEnemy < 0) {
-                    danoEnemy = 0;
-                }
-
-                System.out.println("----------------------------------------------");
-                System.out.println(" O ataque foi de " + danoEnemy);
-
-                enemy.subTrairVida(danoEnemy);
-            } else {
-
-                int danoEnemy = (int) (Math.random() * 20) + 1;
-
-                System.out.println("----------------------------------------------");
-                System.out.println(" O ataque foi de: ->" + danoEnemy + "<-");
-                enemy.subTrairVida(danoEnemy);
+            if (danoReal < 0){
+                danoReal = 0;
             }
+            player.subTrairVida(danoEnemy);
+
+            System.out.println("---------------------------------");
+            System.out.println(" O Ataque foi de: " + danoEnemy);
+            System.out.println("---------------------------------");
+
+
+        } else {
+            System.out.println("TECLA INVALIDA!!!!");
         }
-        else {
-            System.out.println("TECLA INVALIDA !!!");
         }
 
-    } }
+
+    }
 
 
     public void ChoiceScenario (){
-        System.out.println("------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------");
         System.out.println("Escolha um cenario:   [1- Torre Eiffel  2- Arabia 3-Turquia]: ");
         System.out.println("[1- Torre Eiffel  2- Arabia 3-Turquia - Default: Senai Jandira]");
-        System.out.println("-------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------");
 
         int choiceScenario = teclado.nextInt();
 
@@ -116,3 +105,8 @@ public class Battle {
     }
 
 }
+
+
+
+
+
